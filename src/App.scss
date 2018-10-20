@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+  user-select: none;
+  width: 100vw;
+  height: 94vh;
+  overflow: hidden;
+  background: #222;
+  color: #f1f1f1;
+}
+
+.meters, .drive {
+  height: 50%;
+  width: 100%;
+  padding: 3rem;
+}
+
+.meters {
+  background: pink;
+
+  .rc-slider-handle {
+    margin-left: -14px;
+    margin-top: -16px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.drive {
+  background: #ccc;
+
+  .controls {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    // height: 40vh;
+    // width: 80vw;
+
+    button {
+      margin: 0;
+      display: block;
+      // flex-grow: 1;
+      flex: 1 1 0;
+      transition: 0.1s ease;
+
+      &.tapped {
+        background: red;
+      }
+
+      &.hold {
+        background: blue;
+      }
+
+      &.active {
+        background: pink;
+      }
+
+      &.double-hold {
+        background: green;
+      }
+    }
+
+    .control-wrapper {
+      align-self: stretch;
+      display: flex;
+      flex: 1 1 0;
+      flex-flow: column nowrap;
+
+      button {
+
+      }
+    }
+  }
+}
