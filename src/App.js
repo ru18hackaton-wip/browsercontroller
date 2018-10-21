@@ -28,7 +28,7 @@ class App extends Component {
     return super.setState(...params)
   }
 
-  accelerate = (multiplier = 1, direction) => {
+  move = (multiplier = 1, direction) => {
     console.log('accelerating', multiplier)
     const { speed } = this.state
     const combiner = (a, b) => direction === DIRECTIONS.BACKWARD
@@ -137,29 +137,29 @@ class App extends Component {
           <div className="controls">
             <Button 
               className="left" 
-              holdInterval={() => setInterval(() => this.accelerate(1, DIRECTIONS.LEFT), 100)}
-              doubleHoldInterval={() => setInterval(() => this.accelerate(1.3, DIRECTIONS.LEFT), 100)}
+              holdInterval={() => setInterval(() => this.move(1, DIRECTIONS.LEFT), 100)}
+              doubleHoldInterval={() => setInterval(() => this.move(1.3, DIRECTIONS.LEFT), 100)}
             >
               Left
             </Button>
             <div className="control-wrapper">
               <Button 
-              holdInterval={() => setInterval(() => this.accelerate(1, DIRECTIONS.FORWARD), 100)}
-              doubleHoldInterval={() => setInterval(() => this.accelerate(1.3, DIRECTIONS.FORWARD), 100)}
+              holdInterval={() => setInterval(() => this.move(1, DIRECTIONS.FORWARD), 100)}
+              doubleHoldInterval={() => setInterval(() => this.move(1.3, DIRECTIONS.FORWARD), 100)}
             >
                 Forward 
               </Button>
               <Button className="backwards"
-                holdInterval={() => setInterval(() => this.accelerate(1, DIRECTIONS.BACKWARD), 100)}
-                doubleHoldInterval={() => setInterval(() => this.accelerate(1.3, DIRECTIONS.BACKWARD), 100)}
+                holdInterval={() => setInterval(() => this.move(1, DIRECTIONS.BACKWARD), 100)}
+                doubleHoldInterval={() => setInterval(() => this.move(1.3, DIRECTIONS.BACKWARD), 100)}
               >
 
                 Backwards 
               </Button>
             </div>
             <Button className="right" key="right"
-              holdInterval={() => setInterval(() => this.accelerate(1, DIRECTIONS.RIGHT), 100)}
-              doubleHoldInterval={() => setInterval(() => this.accelerate(1.3, DIRECTIONS.RIGHT), 100)}
+              holdInterval={() => setInterval(() => this.move(1, DIRECTIONS.RIGHT), 100)}
+              doubleHoldInterval={() => setInterval(() => this.move(1.3, DIRECTIONS.RIGHT), 100)}
             >
 
                Right 
