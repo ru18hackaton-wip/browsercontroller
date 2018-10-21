@@ -33,15 +33,13 @@ class App extends Component {
       ? a - b
       : a + b
     const x = speed === 0 
-      ? direction === DIRECTIONS.BACKWARD ? -5 : 5
-      : speed < 30 || speed < -10
+      ? 5
+      : speed < 30
         ? combiner(speed, 1)
         : combiner(speed, 2)
     const newSpeed = x * multiplier
     const maxSpeed = 100
     const minSpeed = -100
-
-    
 
     this.setState({
       direction,
