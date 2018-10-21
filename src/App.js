@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import Button from './components/Button'
 
+import request from './lib/request'
+
 import 'rc-slider/assets/index.css'
 import './App.scss'
 
@@ -33,15 +35,13 @@ class App extends Component {
       ? a - b
       : a + b
     const x = speed === 0 
-      ? direction === DIRECTIONS.BACKWARD ? -5 : 5
-      : speed < 30 || speed < -10
+      ? 5
+      : speed < 30
         ? combiner(speed, 1)
         : combiner(speed, 2)
     const newSpeed = x * multiplier
     const maxSpeed = 100
     const minSpeed = -100
-
-    
 
     this.setState({
       direction,
@@ -85,7 +85,13 @@ class App extends Component {
     })
 
     setInterval(() => {
+      const { speed, grabber, direction } = this.state
       this.decelerate()
+      request.sendInstructions({
+        speed,
+        grabber,
+        direction,
+      })
     }, 100)
   }
 
