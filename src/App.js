@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import Button from './components/Button'
 
+import request from './lib/request'
+
 import 'rc-slider/assets/index.css'
 import './App.scss'
 
@@ -83,7 +85,13 @@ class App extends Component {
     })
 
     setInterval(() => {
+      const { speed, grabber, direction } = this.state
       this.decelerate()
+      request.sendInstructions({
+        speed,
+        grabber,
+        direction,
+      })
     }, 100)
   }
 
